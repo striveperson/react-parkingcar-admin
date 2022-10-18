@@ -1,0 +1,540 @@
+@charset "utf-8";
+
+/*==============================
+	tbl_ht01	
+==============================*/
+.tbl_ht01 {}
+
+.tbl_ht01 table {}
+
+.tbl_ht01 tr {
+	line-height: 30px;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.tbl_ht01 tr:first-child {
+	/* border-top: 1px solid #e2e2e2; */
+}
+
+.tbl_ht01 tr:first-child:hover {
+	cursor: auto;
+}
+
+.tbl_ht01 tr:hover {
+	background: #FFE4D7;
+}
+
+.tbl_ht01 th,
+.tbl_ht01 td {
+	border-collapse: collapse;
+	box-sizing: border-box;
+	word-break: keep-all;
+	line-height: 150%;
+	font-size: 14px;
+	/* border: 1px solid #afafaf; */
+}
+
+.tbl_ht01 th {
+	background: #f1f1f1;
+	border-bottom: none;
+	padding: 10px;
+	color: #000;
+	font-weight: normal;
+}
+
+.tbl_ht01 td {
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.tbl_ht01 td a {
+	text-decoration: underline;
+}
+
+.tbl_ht01 td img {
+	max-width: 100%;
+}
+
+.tbl_ht01 .nodata {
+	text-align: center;
+	height: 45px;
+}
+
+
+
+/*==============================
+	tbl_hl01	
+==============================*/
+.tbl_hl01 {}
+
+.tbl_hl01 table {}
+
+.tbl_hl01 tr {
+	line-height: 30px;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.tbl_hl01 tr:first-child {
+	border-top: 1px solid #e2e2e2;
+}
+
+.tbl_hl01 tr:hover {
+	/*background: #e7e9fd5e;*/
+}
+
+.tbl_hl01 th,
+.tbl_hl01 td {
+	border-collapse: collapse;
+	box-sizing: border-box;
+	word-break: keep-all;
+	line-height: 150%;
+	font-size: 14px;
+	border: 1px solid #afafaf;
+}
+
+.tbl_hl01 th {
+	background: #f1f1f1;
+	padding: 10px;
+	color: #000;
+	font-weight: normal;
+}
+
+.tbl_hl01 td {
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.tbl_hl01 td img {
+	max-width: 100%;
+}
+
+.tbl_hl01 .nodata {
+	text-align: center;
+	height: 45px;
+}
+
+
+
+/*==============================
+	tbl_hl02	
+==============================*/
+.tbl_hl02 {}
+
+.tbl_hl02 table {}
+
+.tbl_hl02 tr {
+	line-height: 30px;
+}
+
+.tbl_hl02 tr:first-child {}
+
+.tbl_hl02 tr:hover {
+	/*background: #e7e9fd5e;*/
+}
+
+.tbl_hl02 th,
+.tbl_hl01 td {
+	border-collapse: collapse;
+	box-sizing: border-box;
+	word-break: keep-all;
+	line-height: 150%;
+	font-size: 14px;
+}
+
+.tbl_hl02 th {
+	padding: 5px;
+	color: #a1a1a1;
+}
+
+.tbl_hl02 td {
+	padding: 5px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.tbl_hl02 td img {
+	max-width: 100%;
+}
+
+.tbl_hl02 .nodata {
+	text-align: center;
+	height: 45px;
+}
+
+
+
+/*==============================
+	display
+==============================*/
+.hidden {
+	display: none !important;
+}
+
+.block {
+	display: block !important;
+}
+
+
+/*==============================
+	visible
+==============================*/
+.visible {
+	visibility: visible !important;
+}
+
+.v-hidden {
+	visibility: hidden !important;
+}
+
+
+
+
+/*==============================
+	paging
+==============================*/
+.paging {
+	padding: 30px 0 30px;
+	text-align: center;
+}
+
+.paging ul {
+	display: inline-block;
+}
+
+.paging ul:after {
+	content: "";
+	position: absolute;
+	clear: both;
+}
+
+.paging li {
+	float: left;
+}
+
+.paging li.on a {
+	background-color: #ff5600;
+	color: #ffffff;
+}
+
+.paging li.on a:hover {
+	background-color: #ff5600;
+	color: #ffffff;
+}
+
+.paging li a {
+	display: block;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #dcdcdc;
+	box-sizing: border-box;
+	margin-left: -1px;
+	background: #ffffff;
+	line-height: 28px;
+	text-align: center;
+	border-radius: 2px;
+	margin: 0 2px;
+	color: #74777a;
+}
+
+.paging li a:hover {
+	background-color: #FFE4D7;
+}
+
+.paging .first {
+	background: url("../images/layout/page_first.png") no-repeat center center #fff;
+}
+
+.paging .prev {
+	background: url("../images/layout/page_prev.png") no-repeat center center #fff;
+}
+
+.paging .next {
+	background: url("../images/layout/page_next.png") no-repeat center center #fff;
+}
+
+.paging .last {
+	background: url("../images/layout/page_last.png") no-repeat center center #fff;
+}
+
+.paging li.on .first {
+	background-color: transparent;
+}
+
+.paging li.on .prev {
+	background-color: transparent;
+}
+
+.paging li.on .next {
+	background-color: transparent;
+}
+
+.paging li.on .last {
+	background-color: transparent;
+}
+
+
+
+/*==============================
+	search
+==============================*/
+.card-cont .search-wrap {
+	padding: 0 0 20px 0;
+}
+
+.search-wrap {
+	padding: 20px 0;
+	box-sizing: border-box;
+	display: inline-block;
+	width: 100%;
+}
+
+.search-wrap:after {
+	content: "";
+	position: absolute;
+	clear: both;
+}
+
+.search-wrap .cate {
+	float: left;
+	margin-right: 10px;
+}
+
+.search-wrap .cate select {
+	padding: 5px 20px 5px 10px;
+	box-sizing: border-box;
+	outline: none;
+	height: 34px;
+	border: 1px solid #e2e2e2;
+	border-radius: 4px;
+}
+
+.search-wrap .cate option {}
+
+.search-wrap .sch-box {
+	float: left;
+	margin-right: 10px;
+}
+
+.search-wrap .sch-box input {
+	width: 300px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	outline: none;
+	height: 34px;
+	border: 1px solid #e2e2e2;
+	border-radius: 4px;
+}
+
+.search-wrap .btn-sch {
+	float: left;
+}
+
+
+
+/*==============================
+	disabled
+==============================*/
+select[disabled] {
+	background: #e2e2e2;
+	color: #a2a2a2;
+}
+
+input[disabled] {
+	background: #e2e2e2;
+	color: #a2a2a2;
+}
+
+
+
+
+/*==============================
+	required
+==============================*/
+.required {
+	color: #e6072f;
+	margin-right: 5px;
+}
+
+
+
+/*==============================
+	btn
+==============================*/
+.black_white_btn {
+	background: #4a4b50;
+	color: #fff;
+	border: 1px solid #4a4b50;
+	padding: 4px 15px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	font-size: 14px;
+	text-decoration: none !important;
+}
+
+.orange_white_btn {
+	background: #ff5e00;
+	color: #fff;
+	border: 1px solid #ff5e00;
+	padding: 4px 15px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	font-size: 14px;
+	text-decoration: none !important;
+}
+
+.violet_white_btn {
+	background: #8464ff;
+	color: #fff;
+	border: 1px solid #8464ff;
+	padding: 4px 15px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	font-size: 14px;
+	text-decoration: none !important;
+}
+
+.red_white_btn {
+	background: #e6072f;
+	color: #fff;
+	border: 1px solid #e6072f;
+	padding: 4px 15px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	font-size: 14px;
+	text-decoration: none !important;
+}
+
+.gray_white_btn {
+	background: #302f2f;
+	color: #fff;
+	border: 1px solid #b0b0b0;
+	padding: 4px 15px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	font-size: 14px;
+	text-decoration: none !important;
+}
+
+.pink_white_btn {
+	background: #e86878;
+	color: #fff;
+	border: 1px solid #e86878;
+	padding: 4px 15px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	font-size: 14px;
+	text-decoration: none !important;
+}
+
+.blue_white_btn {
+	background: #71c8ee;
+	color: #fff;
+	border: 1px solid #71c8ee;
+	padding: 4px 15px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	font-size: 14px;
+	text-decoration: none !important;
+}
+
+.green_white_btn {
+	background: #00acac;
+	color: #fff;
+	border: 1px solid #00acac;
+	padding: 4px 15px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	font-size: 14px;
+	text-decoration: none !important;
+}
+
+.btn_search {
+	padding: 4px 15px 4px 30px;
+	background: url("../images/layout/icon-search.png") no-repeat 5px center #4d4b50;
+	background-size: 20px;
+}
+
+.btn_del {
+	padding: 4px 15px 4px 30px;
+	background: url("../images/layout/icon-del.png") no-repeat 5px center #e6072f;
+	background-size: 16px;
+}
+
+.btn_imgAdd {
+	background: #71c8ee;
+	border: none;
+	color: #fff;
+	width: 40px;
+	height: 35px;
+	font-size: 20px;
+	border-radius: 5px;
+	margin: 2px;
+	display: block;
+}
+
+.btn_imgDel {
+	background: #e86878;
+	border: none;
+	color: #fff;
+	width: 40px;
+	height: 35px;
+	font-size: 20px;
+	border-radius: 5px;
+	margin: 2px;
+	display: block;
+}
+
+.btn_classAdd {
+	padding: 4px 10px;
+}
+
+.btn_classAdd i {
+	transform: rotate(45deg);
+}
+
+.btn_classDel {
+	padding: 4px 10px;
+}
+
+.btn_changeBottom {
+	padding: 4px 8px;
+}
+
+.btn_changeTop {
+	padding: 4px 8px;
+}
+
+.btn_edit {
+	padding: 4px 8px;
+}
+
+.btn_timeDel {
+	padding: 4px 8px;
+}
+
+/* disabled */
+.orange_white_btn:disabled {
+	background: #f3a477;
+	border: 1px solid #f3a477;
+}
+
+.green_white_btn:disabled {
+	background: #91bebe;
+	border: 1px solid #91bebe;
+}
+
+.red_white_btn:disabled {
+	background: #df8293;
+	border: 1px solid #e27186;
+}
+
+.violet_white_btn:disabled {
+	background: #b5a5f3;
+	border: 1px solid #b5a5f3;
+}
+
+.important {
+	color: red;
+}

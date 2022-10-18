@@ -1,0 +1,60 @@
+.lnb-wrap {
+	width: 180px;
+	height: 100%;
+	background: #e5e5e5;
+	position: fixed;
+	top: 110px;
+	left: 0;
+	z-index: 99;
+
+  .lnb {
+    .lnb_l1 {
+      background: #7a7d84;
+      position: relative;
+
+      .has-sub {
+        // background: url("%PUBLIC_URL%/images/layout/has-sub_on.png") no-repeat 90% 20px #7a7d84;
+        background-size: 10px;
+      }
+      .close_li {
+        // background: url("%PUBLIC_URL%/images/layout/has-sub.png") no-repeat 90% 20px #7a7d84;
+        background-size: 10px;
+      }
+    }
+
+    .lnb_a1 {
+      display: block;
+      width: 100%;
+      height: 45px;
+      line-height: 45px;
+      color: #fff;
+      padding: 0 20px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    .depth2-wrap {
+      background: #d3d3d3;
+    }
+
+    .depth2 {}
+    .lnb_l2 {
+      .on {
+        background: #fff;
+      }
+      &:hover {
+        background: #fff;
+      }
+    }
+
+    .lnb_a2 {
+      display: block;
+      width: 100%;
+      height: 45px;
+      line-height: 45px;
+      padding: 0 30px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+  }
+} 
