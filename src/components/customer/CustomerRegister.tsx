@@ -38,6 +38,8 @@ const CustomerRegister = () => {
   const id = +(param.id!);
   const {data} = useCustomer(id);
 
+  const isRegisterMode = id === -1;
+
   useEffect(() => {
     if (!data) {
       return;
@@ -45,7 +47,6 @@ const CustomerRegister = () => {
 
     if (data?.code === 200) {
       reset({...data.info});
-      register('account', {disabled: true} )
     } else {
       alert(data?.message);
       navigate('/customers/customer');
@@ -73,7 +74,7 @@ const CustomerRegister = () => {
   return (
     <div id="contents" className="customer-register-wrap">
       <div className="title">
-        <p>고객 관리 &gt; 고객 등록 / 수정</p>
+        <p>고객 관리 &gt; 고객 {isRegisterMode ? '등록' : '수정'}</p>
         <span><span className="important">*</span>는 필수 입력사항 입니다.</span>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -91,28 +92,34 @@ const CustomerRegister = () => {
                     <tr>
                       <th>아파트명<span className="important">*</span></th>
                       <td>
-                        <input type="text" {...register("aptName", {required: true})} />
+                        <fieldset disabled>
+                          <input type="text" {...register("aptName", {required: true})} />
+                        </fieldset>
                       </td>
                     </tr>
                     <tr>
                       <th>아파트 주소<span className="important">*</span></th>
                       <td>
-                        <input type="text" {...register("aptAddr", {required: true})} />
-                        <button type="button" className="gray_white_btn btn_list btn_search_apart mg20">
-                          아파트찾기
-                        </button>
+                        <fieldset disabled>
+                          <input type="text" {...register("aptAddr", {required: true})} />
+                          <button type="button" className="gray_white_btn btn_list btn_search_apart mg20">
+                            아파트찾기
+                          </button>
+                        </fieldset>
                       </td>
                     </tr>
                     <tr>
                       <th>아이디<span className="important">*</span></th>
                       <td>
-                        <input type="text" {...register("account", {
+                        <fieldset disabled={!isRegisterMode}>
+                          <input type="text" {...register("account", {
                             required: true, 
                             maxLength: {value: 80, message: '아이디는 80자 이하입니다'},
                           })} 
-                        />
-                        <button type="button" className="gray_white_btn btn_list mg20">중복확인</button>
-                          <ErrorMessage errors={errors.account} />
+                          />
+                          <button type="button" className="gray_white_btn btn_list mg20">중복확인</button>
+                            <ErrorMessage errors={errors.account} />
+                        </fieldset>
                       </td>
                     </tr>
                     <tr>
