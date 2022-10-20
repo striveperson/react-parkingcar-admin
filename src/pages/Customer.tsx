@@ -10,12 +10,16 @@ const Customer = () => {
     navigate(-1);
   }
 
+  const handleNavigateUpdate = (id: number) => {
+      navigate(`/customers/customer/${id}`);
+  }
+
   return(
     <Routes>
       <Route path="customer">
-        <Route index element={<CustomerList/>} />
-        <Route path=":id/detail" element={<CustomerDetail onBackClick={handleBackClick} />}  />
-        <Route path=":id" element={<CustomerRegister/>}  />
+        <Route index element={<CustomerList onClickRegister={handleNavigateUpdate} />} />
+        <Route path=":id/detail" element={<CustomerDetail onBackClick={handleBackClick} onClickUpdate={handleNavigateUpdate} />} />
+        <Route path=":id" element={<CustomerRegister onBackClick={handleBackClick} />} />
       </Route>
     </Routes>
   )

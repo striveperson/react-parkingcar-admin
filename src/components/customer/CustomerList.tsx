@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import { useCustomerList } from "../../queries/customer/useCustomer";
 
-const CustomerList = () => {
+type CustomerListProps = {
+  onClickRegister: (id: number) => void,
+}
+
+const CustomerList = ({onClickRegister}: CustomerListProps) => {
   const navigate = useNavigate();
   const {data, isLoading} = useCustomerList({ page: 1, count:10});
   const customers = data?.list;
@@ -45,7 +49,7 @@ const CustomerList = () => {
         <p className="count">[{totalCount}] 건</p>
       </div>
       <div className="right-wrap">
-        <button type="button" className="orange_white_btn mg5r" onClick={() => navigate('-1')}>등록</button>
+        <button type="button" className="orange_white_btn mg5r" onClick={() => onClickRegister(-1)}>등록</button>
       </div>
     </div>
     <div className="cont">
