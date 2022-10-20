@@ -26,7 +26,7 @@ const SidebarItem = ({item}: SideBarItemProps) => {
       
       return (
         <li key={child.href} className={classNameActive}>
-          <Link to={child.href} className='lnb_a2'>{child.title}</Link>
+          <Link to={`${item.href}/${child.href}`} className='lnb_a2'>{child.title}</Link>
         </li>
       );
     })

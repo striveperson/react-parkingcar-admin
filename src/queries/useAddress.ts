@@ -12,7 +12,6 @@ export const useAddressList = (searchKey: string) => useQuery(
   () => getAddressList(searchKey),
   {
     onSuccess: (data) => {
-      console.log(data);
       return data;
     },
     enabled: false,

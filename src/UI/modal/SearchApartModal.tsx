@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import Address from '../../models/Address';
 import { useAddressList } from '../../queries/useAddress';
 import classes from './SearchApartModal.module.scss';
@@ -23,7 +23,6 @@ const SearchApartModal = ({onSaveAddress, onToggleModal, isOpen}: ApartModalProp
   // TODO Suspense loading 뜨는데 어떻게??
   
   const {data, refetch} = useAddressList(searchKey);
-  const searchKeyRef = useRef<HTMLInputElement>(null);
   
   useEffect(() => {
     if (isOpen) {

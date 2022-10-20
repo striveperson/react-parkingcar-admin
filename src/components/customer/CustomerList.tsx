@@ -1,7 +1,10 @@
-import { Suspense } from "react";
+import _ from "lodash";
+import { ChangeEvent, Suspense, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SearchKeyListReq } from "../../models/request/SearchKeyListReq";
 
 import { useCustomerList } from "../../queries/customer/useCustomer";
+import Pagination from "../../UI/pagination/Pagination copy";
 
 type CustomerListProps = {
   onClickRegister: (id: number) => void,
@@ -9,9 +12,29 @@ type CustomerListProps = {
 
 const CustomerList = ({onClickRegister}: CustomerListProps) => {
   const navigate = useNavigate();
-  const {data, isLoading} = useCustomerList({ page: 1, count:10});
+  const [listReq, setListReq] = useState<SearchKeyListReq>(new SearchKeyListReq());
+  const {data, refetch} = useCustomerList(listReq);
   const customers = data?.list;
   const totalCount = data?.totalCount;
+
+  const onPageClick = (page: number) => {
+    setListReq((prevState) => ({...prevState, page}));
+  }
+
+  const debounceOnChangeSearchKey = _.debounce((searchKey: string) => setListReq((prevState) => ({...prevState, searchKey})), 300);
+  const handleSearchKeyChange = (event: ChangeEvent<HTMLInputElement>) => {
+    debounceOnChangeSearchKey(event.target.value);
+  }
+
+  const onSubmit = () => {
+    refetch()
+  }
+
+  useEffect(() => {
+    if (data && data.code === 200) {
+      setListReq(prevState => ({...prevState, totalCount: data.totalCount}))
+    }
+  }, [data])
 
 
   const emptyCustomers = (!customers || customers.length === 0) ?
@@ -29,19 +52,19 @@ const CustomerList = ({onClickRegister}: CustomerListProps) => {
       <div className="title">
         <p>고객 관리</p>
       </div>
-        {/* <form onSubmit="onSubmit()">
+        <form onSubmit={onSubmit}>
           <div className="filter-wrap">
             <div className="filter">
               <dl>
                 <dt>검색어</dt>
                 <dd>
-                  <input type="text" name="searchKey" [(ngModel)]="req.searchKey" placeholder="아파트명 입력">
+                  <input type="text" name="searchKey" placeholder="아파트명 입력" onChange={handleSearchKeyChange} />
                 </dd>
               </dl>
             </div>
             <button type="submit" className="black_white_btn btn_search">검색</button>
           </div>
-        </form> */}
+        </form>
   <div className="cont-wrap">
     <div className="cont-top">
       <div className="subtit">
@@ -72,7 +95,7 @@ const CustomerList = ({onClickRegister}: CustomerListProps) => {
             {
               customers?.map((customer, i) => 
                 <tr key={customer.aptId} onClick={() => navigate(`${customer.aptId}/detail`)}>
-                  <td>{ (i + 1)}</td>
+                  <td>{ (i + 1) + ((listReq.page - 1) * listReq.count) }</td>
                   <td>{customer.aptName}</td>
                   <td>{customer.grade === 'F' ? '무료' : '유료'}</td>
                   <td>{customer.aptAddr}</td>
@@ -86,7 +109,7 @@ const CustomerList = ({onClickRegister}: CustomerListProps) => {
           </tbody>
         </table>
       </div>
-      {/* <app-pagination #pagination (pageEvent)="onPageClick($event)"></app-pagination> */}
+      <Pagination onPageClick={onPageClick} page={listReq} />
     </div>
   </div>
 </div>

@@ -1,3 +1,4 @@
+import { SearchKeyListReq } from './../../models/request/SearchKeyListReq';
 import qs from 'qs'
 import { useMutation, useQuery } from 'react-query';
 import { ApartFormData } from '../../components/customer/CustomerRegister';
@@ -7,13 +8,8 @@ import client from "../client";
 import { customerKeys } from '../queryKeys';
 import { ParkingCarResp } from './../../models/response/ParkingCarResp';
 
-export type request = {
-  page: number;
-  count: number;
-}
-
 // axios method
-const getCustomerList = (req: request): Promise<CustomerListResp> =>
+const getCustomerList = (req: SearchKeyListReq): Promise<CustomerListResp> =>
   client.get('/apts', { params: req })
     .then(({ data }) => data);
 
@@ -31,7 +27,7 @@ const updateCustomer = (apart: ApartFormData): Promise<ParkingCarResp> =>
 
 
 // custom hook
-export const useCustomerList = (req: request) => useQuery(
+export const useCustomerList = (req: SearchKeyListReq) => useQuery(
   customerKeys.list(req),
   () => getCustomerList(req),
   { onSuccess: (data) => data ?? [], }
