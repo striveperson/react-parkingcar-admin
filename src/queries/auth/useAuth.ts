@@ -12,8 +12,10 @@ export interface SignInResp extends ParkingCarResp {
 
 const signIn = (account: LoginData) => client.post('/login', qs.stringify(account));
 const signOut = () => client.delete('/logout');
+const doubleCheck = (account: string) => client.post<ParkingCarResp>('/checkAccount/', qs.stringify({ account })).then(({ data }) => data);
 
 export const useSignInMutation = () => useMutation(signIn);
-export const useSignOutMutation = () => useMutation(signOut)
+export const useSignOutMutation = () => useMutation(signOut);
+export const useDoubleCheck = () => useMutation(doubleCheck);
 
 
