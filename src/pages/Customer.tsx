@@ -1,8 +1,10 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { lazy } from "react";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
-import CustomerDetail from "../components/customer/CustomerDetail";
 import CustomerList from "../components/customer/CustomerList";
-import CustomerRegister from "../components/customer/CustomerRegister";
+
+const CustomerRegister = lazy(() => import("../components/customer/CustomerRegister"));
+const CustomerDetail = lazy(() => import("../components/customer/CustomerDetail"));
 
 const Customer = () => {
   const navigate = useNavigate();
@@ -21,6 +23,7 @@ const Customer = () => {
         <Route path=":id/detail" element={<CustomerDetail onBackClick={handleBackClick} onClickUpdate={handleNavigateUpdate} />} />
         <Route path=":id" element={<CustomerRegister onBackClick={handleBackClick} />} />
       </Route>
+      <Route path="*" element={<Navigate to={'customer'}/>}/>
     </Routes>
   )
 }

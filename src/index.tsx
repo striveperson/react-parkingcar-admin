@@ -12,7 +12,8 @@ import './index.css';
 const queryClient = new QueryClient({defaultOptions: {
   queries: {
     retry: 0,
-    suspense: true
+    // suspense: true,
+    refetchOnWindowFocus: false // 다른쪽에 포스 맞춰저있다가 윈도우로 포커스가 들어오면 refetch 실행
   }
 }});
 
@@ -25,7 +26,6 @@ root.render(
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>          
           <App />
-          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         </Provider>
       </QueryClientProvider>
   </React.StrictMode>

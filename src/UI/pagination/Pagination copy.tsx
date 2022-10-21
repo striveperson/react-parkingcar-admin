@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
+
 import { Page } from "../../models/Page";
 
 type PaginationProps = {
   onPageClick: (page: number) => void,
   page: Page,
+  totalCount: number,
 }
 type PageInfo = {
   pageNumber: number, 
   name: string,
 }
 
-const Pagination = ({onPageClick, page}: PaginationProps) => {
+const Pagination = ({onPageClick, page, totalCount}: PaginationProps) => {
 const [pages, setPages] = useState<PageInfo[]>([]);
 
   useEffect(() => {
-    generatePagination(page.page, page.totalCount, page.count);
-  },[page]);
+    generatePagination(page.page, totalCount, page.count);
+  },[page, totalCount]);
 
   const generatePagination = (page: number, totalCount: number, count: number) => {
     const pages: PageInfo[] = [];

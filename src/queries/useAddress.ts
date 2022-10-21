@@ -1,9 +1,9 @@
 import { useQuery } from 'react-query';
+
+import Address from '../models/Address';
 import { ParkingCarResp } from './../models/response/ParkingCarResp';
 import client from "./client";
 import { addressKeys } from "./queryKeys";
-
-import Address from '../models/Address';
 
 const getAddressList = (searchKey: string) => client.get<AddressListResp>('/apt/juso', { params: { searchKey } }).then(({ data }) => data);
 

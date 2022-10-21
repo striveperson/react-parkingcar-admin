@@ -1,11 +1,11 @@
-import { SearchKeyListReq } from './../../models/request/SearchKeyListReq';
 import qs from 'qs'
 import { useMutation, useQuery } from 'react-query';
-import { ApartFormData } from '../../components/customer/CustomerRegister';
 
+import { ApartFormData } from '../../components/customer/CustomerRegister';
 import { Apart } from '../../models/Apart';
 import client from "../client";
 import { customerKeys } from '../queryKeys';
+import { SearchKeyListReq } from './../../models/request/SearchKeyListReq';
 import { ParkingCarResp } from './../../models/response/ParkingCarResp';
 
 // axios method
@@ -30,7 +30,7 @@ const updateCustomer = (apart: ApartFormData): Promise<ParkingCarResp> =>
 export const useCustomerList = (req: SearchKeyListReq) => useQuery(
   customerKeys.list(req),
   () => getCustomerList(req),
-  { onSuccess: (data) => data ?? [], }
+  { onSuccess: (data) => data ?? [] }
 );
 
 export const useCustomer = (id: number) => useQuery(

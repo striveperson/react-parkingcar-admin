@@ -1,14 +1,14 @@
-import { Suspense } from "react";
+import React from "react";
 
 import Header from "../layouts/Header";
 import Main from "../layouts/Main";
 
 const Default = () => {
   return (
-      <Suspense fallback={<div>loading</div>}>
-        <Header/>
-        <Main/>
-      </Suspense>
+    <React.Fragment>
+      <Header/>
+      <Main/>
+    </React.Fragment>
   )
 }
 

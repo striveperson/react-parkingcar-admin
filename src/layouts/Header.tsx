@@ -28,7 +28,7 @@ const Header = () => {
     mutate(undefined , {
       onSuccess: () => {
         dispatch(authActions.logout());
-        navigate('/sign-in', {replace: true});
+        navigate('/sign-in');
       }
     });
   }

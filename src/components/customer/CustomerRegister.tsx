@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import Address from "../../models/Address";
 
+import Address from "../../models/Address";
 import { ParkingCarResp } from "../../models/response/ParkingCarResp";
 import { useDoubleCheck } from "../../queries/auth/useAuth";
 import { useCustomer, useRegisterCustomer, useUpdateCustomer } from "../../queries/customer/useCustomer";
@@ -105,6 +105,7 @@ const CustomerRegister = ({onBackClick}: CustomerRegisterProps) => {
 
   const handleChangedAddress = ({aptName, aptAddr}: Address) => {
     reset({aptName, aptAddr});
+    toggleModal(false);
   }
 
   return (
